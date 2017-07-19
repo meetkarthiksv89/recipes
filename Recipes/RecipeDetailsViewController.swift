@@ -59,13 +59,24 @@ class RecipeDetailsViewController: UIViewController{
                     
                 }
             }
+    
             let realm = try! Realm()
-            let recipe = Recipe(withTitle: recipeTitle.text!, timeNeeded: timeNeeded.text!, ingredients: ingredients, directions: directions)
-            try! realm.write {
-                realm.add(recipe)
+            let checkForRecipe = realm.objects(Recipe.self).filter("title = %@", recipeTitle.text!)
+            
+            if checkForRecipe.count > 0 {
+                print("")
             }
-            //delegate?.saveAndReloadTheTable(recipe: recipe)
-            dismiss(animated: true, completion: nil)
+            else{
+                let Id = Recipe.counter + 1
+                let recipe = Recipe(withTitle: recipeTitle.text!, timeNeeded: timeNeeded.text!, ingredients: ingredients, directions: directions, Id: Id)
+                //FirebaseManager.saveRecipe(recipe)
+                try! realm.write {
+                    realm.add(recipe)
+                }
+                //delegate?.saveAndReloadTheTable(recipe: recipe)
+                dismiss(animated: true, completion: nil)
+                
+            }
             
         }
         //delegate?.saveAndReloadTheTable(recipe: <#T##Recipe#>)

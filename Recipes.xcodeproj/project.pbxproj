@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		254C5A4A1F1AD15800C08104 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C5A491F1AD15800C08104 /* LoginViewController.swift */; };
+		254C5A4C1F1AD63400C08104 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 254C5A4B1F1AD63400C08104 /* GoogleService-Info.plist */; };
+		254C5A4E1F1C218A00C08104 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C5A4D1F1C218A00C08104 /* FirebaseManager.swift */; };
+		254C5A511F1C41FC00C08104 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C5A501F1C41FC00C08104 /* Constants.swift */; };
 		255520A61EBFB70A005DCBE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255520A51EBFB70A005DCBE1 /* AppDelegate.swift */; };
 		255520A81EBFB70A005DCBE1 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255520A71EBFB70A005DCBE1 /* RecipeListViewController.swift */; };
 		255520AB1EBFB70A005DCBE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255520A91EBFB70A005DCBE1 /* Main.storyboard */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		254C5A491F1AD15800C08104 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		254C5A4B1F1AD63400C08104 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		254C5A4D1F1C218A00C08104 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		254C5A501F1C41FC00C08104 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		255520A21EBFB70A005DCBE1 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255520A51EBFB70A005DCBE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		255520A71EBFB70A005DCBE1 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		254C5A4F1F1C409A00C08104 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				254C5A4D1F1C218A00C08104 /* FirebaseManager.swift */,
+				254C5A501F1C41FC00C08104 /* Constants.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		255520991EBFB70A005DCBE1 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				255520A51EBFB70A005DCBE1 /* AppDelegate.swift */,
+				254C5A4F1F1C409A00C08104 /* Util */,
 				25E096A11EBFF6A200A28AE7 /* Model */,
 				25E096A01EBFF69A00A28AE7 /* Views */,
 				25E0969F1EBFF68B00A28AE7 /* View Controllers */,
@@ -85,6 +103,7 @@
 				25E0969D1EBFE6E200A28AE7 /* header14.jpg */,
 				255520AE1EBFB70A005DCBE1 /* LaunchScreen.storyboard */,
 				255520B11EBFB70A005DCBE1 /* Info.plist */,
+				254C5A4B1F1AD63400C08104 /* GoogleService-Info.plist */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -95,6 +114,7 @@
 				255520A71EBFB70A005DCBE1 /* RecipeListViewController.swift */,
 				25E096991EBFDC6100A28AE7 /* RecipeDetailsViewController.swift */,
 				25E096A21EC0470800A28AE7 /* ShoppingListViewController.swift */,
+				254C5A491F1AD15800C08104 /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -201,6 +221,7 @@
 			files = (
 				255520B01EBFB70A005DCBE1 /* LaunchScreen.storyboard in Resources */,
 				25E0969E1EBFE6E200A28AE7 /* header14.jpg in Resources */,
+				254C5A4C1F1AD63400C08104 /* GoogleService-Info.plist in Resources */,
 				255520AD1EBFB70A005DCBE1 /* Assets.xcassets in Resources */,
 				255520AB1EBFB70A005DCBE1 /* Main.storyboard in Resources */,
 			);
@@ -265,11 +286,14 @@
 				25E0969C1EBFE04700A28AE7 /* InstructionTableViewCell.swift in Sources */,
 				255520A81EBFB70A005DCBE1 /* RecipeListViewController.swift in Sources */,
 				255520A61EBFB70A005DCBE1 /* AppDelegate.swift in Sources */,
+				254C5A4E1F1C218A00C08104 /* FirebaseManager.swift in Sources */,
 				25E096A31EC0470800A28AE7 /* ShoppingListViewController.swift in Sources */,
 				25E096941EBFBDA000A28AE7 /* RecipeCellTableViewCell.swift in Sources */,
 				25E0969A1EBFDC6100A28AE7 /* RecipeDetailsViewController.swift in Sources */,
 				258A53541EC682C5003D0F5D /* DataManager.swift in Sources */,
+				254C5A4A1F1AD15800C08104 /* LoginViewController.swift in Sources */,
 				25E096981EBFBE6000A28AE7 /* Recipe.swift in Sources */,
+				254C5A511F1C41FC00C08104 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +422,7 @@
 				DEVELOPMENT_TEAM = 72F7QB4UTV;
 				INFOPLIST_FILE = Recipes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.karthik.Recipes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthik.RecipeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -412,7 +436,7 @@
 				DEVELOPMENT_TEAM = 72F7QB4UTV;
 				INFOPLIST_FILE = Recipes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.karthik.Recipes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthik.RecipeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

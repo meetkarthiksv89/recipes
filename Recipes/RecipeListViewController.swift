@@ -15,6 +15,9 @@ class RecipeListViewController: UIViewController{
     var recipes: Results<Recipe>!
     var selectedRecipe: Recipe!
     
+    var notificationToken: NotificationToken!
+    var realm: Realm!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +29,48 @@ class RecipeListViewController: UIViewController{
         
         
         let realm = try! Realm()
-        recipes = realm.objects(Recipe.self)
+//        try! realm.write {
+//            realm.deleteAll()
+//        }
+        recipes = realm.objects(Recipe.self).sorted(byKeyPath: "title", ascending: true)
         
     }
+    func setupRealm() {
+        // Log in existing user with username and password
+        let username = "meetkarthiksv89@gmail.com"  // <--- Update this
+        let password = "svkkar001"  // <--- Update this
+        
+        
+        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
+            guard let user = user else {
+                fatalError(String(describing: error))
+            }
+            
+            DispatchQueue.main.async {
+                // Open Realm
+                let configuration = Realm.Configuration(
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/realmtasks")!)
+                )
+                self.realm = try! Realm(configuration: configuration)
+                
+                // Show initial tasks
+                func updateList() {
+                    self.recipes = self.realm.objects(Recipe.self)
+                    self.recipeTableView.reloadData()
+                }
+                updateList()
+                
+                // Notify us when Realm changes
+                self.notificationToken = self.realm.addNotificationBlock { _ in
+                    updateList()
+                }
+            }
+        }
+    }
+    
+//    deinit {
+//        notificationToken.stop()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         recipeTableView.reloadData()

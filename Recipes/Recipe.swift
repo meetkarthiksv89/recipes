@@ -12,15 +12,18 @@ import Realm
 
 class Recipe: Object {
     
+    static var counter = 0
+    dynamic var Id = 0
     dynamic var title: String!
     dynamic var timeNeeded: String!
     var ingredients = List<Ingredients>()
     var directions = List<Ingredients>()
     dynamic var category: String = "South Indian"
     
-    convenience init(withTitle title:String, timeNeeded: String, ingredients: List<Ingredients>, directions: List<Ingredients>)
+    convenience init(withTitle title:String, timeNeeded: String, ingredients: List<Ingredients>, directions: List<Ingredients>, Id: Int)
     {
         self.init()
+        self.Id = Id
         self.title = title
         self.timeNeeded = timeNeeded
         self.ingredients = ingredients
@@ -29,11 +32,11 @@ class Recipe: Object {
     }
     
     override class func primaryKey() -> String? {
-        return "title"
+        return "Id"
     }
     
     override class func indexedProperties() -> [String] {
-        return ["timeNeeded"]
+        return ["timeNeeded","title"]
     }
     
     
